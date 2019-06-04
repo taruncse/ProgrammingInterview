@@ -1,13 +1,21 @@
-package tkb.programming.interview;
-
-import tkb.programming.interview.tree.InOrderTraversal;
-import tkb.programming.interview.tree.Node;
+package tkb.programming.interview.tree;
 
 import java.util.Scanner;
 
-public class Main {
+public class InOrderTraversal {
+   public static void inorderTraversal(Node root){
+        if (root == null){
+            return;
+        }
 
-    public static void main(String[] args) {
+        inorderTraversal(root.left);
+        System.out.print(root.data +" ");
+        inorderTraversal(root.right);
+    }
+}
+//Test data
+
+    /*public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int n = scan.nextInt();
         Node root = null;
@@ -33,5 +41,4 @@ public class Main {
             }
             return root;
         }
-    }
-}
+    }*/
