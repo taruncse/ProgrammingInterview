@@ -1,5 +1,6 @@
 package tkb.programming.interview;
 
+import tkb.programming.interview.tree.BinarySearchTreeTest;
 import tkb.programming.interview.tree.InOrderTraversal;
 import tkb.programming.interview.tree.Node;
 
@@ -16,7 +17,8 @@ public class Main {
             root = insertNode(root, data);
         }
 
-        InOrderTraversal.inorderTraversal(root);
+       boolean test =  BinarySearchTreeTest.checkBST(root);
+        System.out.print(test);
     }
 
     private static Node insertNode(Node root , int data) {
