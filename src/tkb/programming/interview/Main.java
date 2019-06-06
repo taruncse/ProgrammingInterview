@@ -1,39 +1,25 @@
 package tkb.programming.interview;
 
-import tkb.programming.interview.tree.BinarySearchTreeTest;
-import tkb.programming.interview.tree.InOrderTraversal;
-import tkb.programming.interview.tree.Node;
-
-import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int n = scan.nextInt();
-        Node root = null;
-        while (n-- > 0) {
-            int data = scan.nextInt();
-            root = insertNode(root, data);
-        }
 
-       boolean test =  BinarySearchTreeTest.checkBST(root);
-        System.out.print(test);
+        int arr1[] = { 0, 1, 2, 3, 4, 5 };
+
+        int[] result = rotLeft(arr1, 2);
+
+        for (int i = 0; i < result.length; i++) {
+            System.out.print(result[i]+" ");
+        }
     }
+    static int[] rotLeft(int[] a, int d) {
 
-    private static Node insertNode(Node root , int data) {
-        if (root == null){
-            return new Node(data);
-        }else {
-            Node current;
-            if (root.data >= data){
-                current = insertNode(root.left,data);
-                root.left = current;
-            }else {
-                current =  insertNode(root.right,data);
-                root.right = current;
-            }
-            return root;
-        }
+        int length = a.length;
+        int[] b = new int[length];
+        int diff = length -d ;
+        System.arraycopy(a, d, b, 0, diff);
+        System.arraycopy(a, 0, b, diff, d);
+        return b;
     }
 }
